@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnmiyy3mjwfof"]
+
+[ext_resource type="PackedScene" uid="uid://bqjm81qt1te1b" path="res://player.tscn" id="1_k37qf"]
+[ext_resource type="Script" path="res://player.gd" id="1_wc732"]
+[ext_resource type="Texture2D" uid="uid://dck0edxuxt4po" path="res://i-block.png" id="2_x0tdl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nj5ia"]
+size = Vector2(36, 144)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_wc732")
+
+[node name="Core" parent="." instance=ExtResource("1_k37qf")]
+
+[node name="I-block" type="Sprite2D" parent="Core"]
+position = Vector2(-18, -72)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_x0tdl")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="Core"]
+position = Vector2(-18, -72)
+shape = SubResource("RectangleShape2D_nj5ia")
+
+[node name="Anchors" type="Node2D" parent="."]
+
+[node name="RotationAnchor1" type="Node2D" parent="Anchors"]
+position = Vector2(18, 72)
+scale = Vector2(1.5, 1.5)
+
+[node name="RotationAnchor2" type="Node2D" parent="Anchors"]
+position = Vector2(18, -72)
+scale = Vector2(1.5, 1.5)
+
+[node name="RotationAnchor3" type="Node2D" parent="Anchors"]
+position = Vector2(-18, -72)
+scale = Vector2(1.5, 1.5)
+
+[node name="RotationAnchor4" type="Node2D" parent="Anchors"]
+position = Vector2(-18, 72)
+scale = Vector2(1.5, 1.5)

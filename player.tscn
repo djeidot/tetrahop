@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqjm81qt1te1b"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_w5mud"]
+[ext_resource type="Texture2D" uid="uid://dck0edxuxt4po" path="res://i-block.png" id="1_y4j0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l221"]
+size = Vector2(36, 144)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_w5mud")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-19, -72, 18, -72, 18, 72, -19, 72)
+
+[node name="I-block" type="Sprite2D" parent="."]
+position = Vector2(-18, -72)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_y4j0r")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-18, -72)
+shape = SubResource("RectangleShape2D_5l221")
+
+[node name="Anchors" type="Node2D" parent="."]
+
+[node name="RotationAnchor1" type="Node2D" parent="Anchors"]
+position = Vector2(18, 72)
+scale = Vector2(1.5, 1.5)
+
+[node name="RotationAnchor2" type="Node2D" parent="Anchors"]
+position = Vector2(18, -72)
+scale = Vector2(1.5, 1.5)
+
+[node name="RotationAnchor3" type="Node2D" parent="Anchors"]
+position = Vector2(-18, -72)
+scale = Vector2(1.5, 1.5)
+
+[node name="RotationAnchor4" type="Node2D" parent="Anchors"]
+position = Vector2(-18, 72)
+scale = Vector2(1.5, 1.5)

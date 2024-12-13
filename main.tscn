@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://pucd31nhaer5"]
+
+[ext_resource type="PackedScene" uid="uid://bqjm81qt1te1b" path="res://player.tscn" id="1_76p8b"]
+[ext_resource type="Script" path="res://main.gd" id="1_imh4p"]
+[ext_resource type="PackedScene" uid="uid://dhoed0q1f4i7s" path="res://hud.tscn" id="2_4du5f"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yiixj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrcut"]
+size = Vector2(1200, 232)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_imh4p")
+
+[node name="Floor" type="CharacterBody2D" parent="."]
+position = Vector2(6, 440)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(570, 116)
+scale = Vector2(1200, 232)
+texture = SubResource("CanvasTexture_yiixj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(570, 116)
+shape = SubResource("RectangleShape2D_wrcut")
+
+[node name="HUD" parent="." instance=ExtResource("2_4du5f")]
+
+[node name="Player" parent="." instance=ExtResource("1_76p8b")]
+position = Vector2(280, 248)
